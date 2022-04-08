@@ -7,12 +7,13 @@ import {createStore} from "redux";
 import {reducer} from "./reducer";
 import {Provider} from "react-redux";
 import App from './App';
+import {appPrefix} from "./photos.js";
 
 const store = createStore(reducer);
 
 ReactDOM.render(
   <React.StrictMode>
-      <ConfigProvider locale={zhCN} prefixCls={"photowall"}>
+      <ConfigProvider locale={zhCN} prefixCls={appPrefix}>
           <Provider store={store}>
               <App />
           </Provider>

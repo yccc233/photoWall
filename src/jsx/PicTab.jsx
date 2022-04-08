@@ -1,5 +1,8 @@
 import React,{ Component } from 'react'
 
+const cardWidth = 240;
+const cardHeight = 316;
+
 /**
  * @param {Object} picJson
  * @param {Array} picJson.picUrl    照片的url
@@ -28,13 +31,13 @@ class PicTab extends Component {
             newRotateY.push(0)
             if(id===index){
                 newRotate.push(0)
-                newLeft.push('40%');
-                newTop.push('20%')
+                newLeft.push(`calc(50% - ${cardWidth / 2}px)`);
+                newTop.push(`calc(50% - ${cardHeight / 2}px)`)
                 newZindex[index]=30;
             }else{
                 newRotate.push(Math.random()*-720+360);
-                newLeft.push(Math.random()*(window.innerWidth-340)+'px');
-                newTop.push(Math.random()*(window.innerHeight-416)+'px')
+                newLeft.push(Math.random()*(window.innerWidth-cardWidth)+'px');
+                newTop.push(Math.random()*(window.innerHeight-cardHeight)+'px')
             }
 
         })
@@ -51,16 +54,16 @@ class PicTab extends Component {
             *{margin:0;padding:0;list-style:none;}
             body{background:#ccc;overflow:hidden;}
             .myUl{width:100%;height:100%;}
-            .myUl>li{width:340px;height:416px;background:white;position:absolute;transform-style:preserve-3d;}
+            .myUl>li{width:${cardWidth}px;height:${cardHeight}px;position:absolute;transform-style:preserve-3d;}
 
-            .myUl>li .zm{width:100%;height:100%;position:absolute;left:0;top:0;transform:translateZ(1px)}
-            .myUl>li>.zm img{width:285px;height:192px;position:absolute;left:50%;top:93px;transform:translateX(-50%)}
+            .myUl>li .zm{width:100%;height:100%;position:absolute;left:0;top:0;transform:translateZ(1px);background:white;}
+            .myUl>li>.zm img{width:90%;height:45%;position:absolute;left:50%;top:20%;transform:translateX(-50%)}
             .myUl>li>.zm .textNode{width:100%;position:absolute;text-align:center;bottom:24px;color:#4d544d;}
 
             .myUl>li .bm{width:100%;height:100%;position:absolute;left:0;top:0;transform:translateZ(-10px) rotateY(180deg);text-align:center;}
 
             .myOl{position:absolute;left:50%;transform:translateX(-50%);bottom:38px;height:22px;}            
-            .myOl>li{width:22px;height:22px;float:left;background-color:#007d77;margin:0 8px;z-index:100;border-radius:50%;cursor:pointer;transition:.7s;}
+            .myOl>li{width:22px;height:22px;float:left;background-color:#007d77;margin:0 8px;z-index:10000;border-radius:50%;cursor:pointer;transition:.7s;}
             .myOl>li.active{transform:scale(1.5) rotateY(180deg);}
             .myOl>li.dactive{transform:scale(1.5) rotateY(360deg);background:yellow;}
             

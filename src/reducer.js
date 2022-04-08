@@ -1,34 +1,23 @@
-const imgPre = "/photowall/img/"
+import photos from "./photos.js";
+
+const imgPre = `/${photos.appPrefix}/img/`;
+
+const photoFiles = photos.photoInfos;
+let imgs = [], titles = [], descs = [];
+
+photoFiles.forEach((v, i) => {
+    if (v.name) {
+        imgs.push(imgPre + v.name);
+        titles.push(v.title || "");
+        descs.push(v.desc || "");
+    }
+});
 
 export function reducer(
     state = {
-        imgs: [
-            imgPre + "IMG_2195.jpeg",
-            imgPre + "IMG_2205.jpeg",
-            imgPre + "IMG_2251.jpeg",
-            imgPre + "IMG_2254.jpeg",
-            imgPre + "IMG_2261.jpeg",
-            imgPre + "IMG_2510.jpeg",
-            imgPre + "IMG_2623.jpeg",
-        ],
-        titles: [
-            "照片集",
-            "照片集",
-            "照片集",
-            "照片集",
-            "照片集",
-            "照片集",
-            "照片集",
-        ],
-        descs: [
-            "描述啊",
-            "描述啊",
-            "描述啊",
-            "描述啊",
-            "描述啊",
-            "描述啊",
-            "描述啊",
-        ]
+        imgs: imgs,
+        titles: titles,
+        descs: descs
     },
     action
 ) {

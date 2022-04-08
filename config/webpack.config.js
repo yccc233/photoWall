@@ -60,7 +60,7 @@ const useTypeScript = fs.existsSync(paths.appTsConfig);
 
 // Check if Tailwind config exists
 const useTailwind = fs.existsSync(
-  path.join(paths.appPath, 'tailwind.config.js')
+  path.join(paths.appPath, 'tailwind.photos.js')
 );
 
 // Get the path to the uncompiled service worker (if it exists).
@@ -217,7 +217,7 @@ module.exports = function (webpackEnv) {
       // webpack uses `publicPath` to determine where the app is being served from.
       // It requires a trailing slash, or the file assets will get an incorrect path.
       // We inferred the "public path" (such as / or /my-project) from homepage.
-      publicPath: `/${paths.appPrefix}/`,
+      publicPath: paths.publicUrlOrPath,
       // Point sourcemap entries to original disk location (format as URL on Windows)
       devtoolModuleFilenameTemplate: isEnvProduction
         ? info =>
