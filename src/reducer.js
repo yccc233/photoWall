@@ -1,8 +1,8 @@
-import photos from "./photos.js";
+import config from "./entry.js";
 
-const imgPre = `/${photos.appPrefix}/img/`;
+const imgPre = `/${config.appPrefix}/img/`;
 
-const photoFiles = photos.photoInfos;
+const photoFiles = config.photoInfos;
 let imgs = [], titles = [], descs = [];
 
 photoFiles.forEach((v, i) => {
