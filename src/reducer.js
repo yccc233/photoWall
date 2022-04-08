@@ -1,4 +1,4 @@
-const imgPre = "/img/"
+const imgPre = "/photowall/img/"
 
 export function reducer(
     state = {

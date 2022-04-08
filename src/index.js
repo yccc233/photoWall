@@ -12,7 +12,7 @@ const store = createStore(reducer);
 
 ReactDOM.render(
   <React.StrictMode>
-      <ConfigProvider locale={zhCN} prefixCls={"photoWall"}>
+      <ConfigProvider locale={zhCN} prefixCls={"photowall"}>
           <Provider store={store}>
               <App />
           </Provider>
